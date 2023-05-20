@@ -17,9 +17,15 @@ def generateParenthesis(n: int):
     for leftCount in range(n):
         for leftString in generateParenthesis(leftCount):
             for rightString in generateParenthesis(n - leftCount - 1):
+                # either of these ways would work
                 validList.append("(" + leftString + ")" + rightString)
+                # validList.append(leftString + "(" + rightString + ")")
 
     return validList
 
 
-print(generateParenthesis(3))
+print(generateParenthesis(4))
+
+a = ['()()()()', '()()(())', '()(())()', '()(()())', '()((()))', '(())()()', '(())(())', '(()())()', '((()))()', '(()()())', '(()(()))', '((())())', '((()()))', '(((())))']
+b = ['(((())))', '((()()))', '(()(()))', '((())())', '(()()())', '()((()))', '()(()())', '(())(())', '()()(())', '((()))()', '(()())()', '()(())()', '(())()()', '()()()()']
+print(set(a) == set(b))
